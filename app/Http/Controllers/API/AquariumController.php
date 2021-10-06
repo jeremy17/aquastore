@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Models\Aquarium;
 use Illuminate\Http\Request;
 
 class AquariumController extends \App\Http\Controllers\Controller
@@ -80,5 +81,18 @@ class AquariumController extends \App\Http\Controllers\Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Display a listing of all fish.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllFish($id)
+    {
+        $aquarium = Aquarium::findorFail($id);
+        $fish = $aquarium->fish()->get();
+        return response()->json($fish, 200);
     }
 }

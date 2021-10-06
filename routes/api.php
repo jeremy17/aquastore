@@ -22,3 +22,4 @@ use App\Http\Controllers\API\AquariumController;
 
 Route::resource('fish', FishController::class);
 Route::resource('aquarium', AquariumController::class);
+Route::get('aquarium-get-all-fish/{id}', [AquariumController::class, 'getAllFish']);
