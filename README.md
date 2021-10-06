@@ -27,6 +27,11 @@ C:\> php artisan migrate
 C:\> php artisan db:seed
 ```
 
+### To run application
+```
+C:\> php artisan serve
+```
+
 ### To access API through PHPStorm HTTPRequest scratch file
 ```
 POST http://localhost:8000/api/fish
