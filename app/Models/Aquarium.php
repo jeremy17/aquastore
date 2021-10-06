@@ -16,6 +16,7 @@ class Aquarium extends Model
     {
         return $this->hasMany(Fish::class);
     }
+
     function checkCompatible($fish)
     {
         if ($fish->species == 'goldfish') {
