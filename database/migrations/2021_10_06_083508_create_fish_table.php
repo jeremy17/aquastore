@@ -18,6 +18,8 @@ class CreateFishTable extends Migration
             $table->string('species', 255);
             $table->string('color', 255);
             $table->integer('number_of_fins');
+            $table->unsignedBigInteger('aquaria_id');
+            $table->foreign('aquaria_id')->references('id')->on('aquaria');
             $table->timestamps();
         });
     }

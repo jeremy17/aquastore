@@ -18,7 +18,6 @@ class CreateAquariaTable extends Migration
             $table->string('glass_type', 255);
             $table->integer('size');
             $table->string('shape', 255);
-            $table->foreignId('fish_id')->constrained();
             $table->timestamps();
         });
     }
