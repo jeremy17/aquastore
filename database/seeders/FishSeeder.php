@@ -14,21 +14,25 @@ class FishSeeder extends Seeder
      */
     public function run()
     {
-        $aquarium = DB::table('aquaria')
+        $aquarium1 = DB::table('aquarium')
             ->select('id')
             ->where('id', '=', 1)
+            ->get();
+        $aquarium2 = DB::table('aquarium')
+            ->select('id')
+            ->where('id', '=', 2)
             ->get();
         DB::table('fish')->insert([
             'species' => 'goldfish',
             'color' => 'red',
             'number_of_fins' => 5,
-            'aquaria_id' => $aquarium[0]->id,
+            'aquarium_id' => $aquarium1[0]->id,
         ]);
         DB::table('fish')->insert([
             'species' => 'guppy',
             'color' => 'white',
             'number_of_fins' => 2,
-            'aquaria_id' => $aquarium[0]->id,
+            'aquarium_id' => $aquarium2[0]->id,
         ]);
     }
 }
