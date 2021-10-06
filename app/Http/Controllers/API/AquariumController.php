@@ -87,7 +87,7 @@ class AquariumController extends \App\Http\Controllers\Controller
      * Display a listing of all fish.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getAllFish($id)
     {

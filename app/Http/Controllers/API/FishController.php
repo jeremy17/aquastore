@@ -101,7 +101,12 @@ class FishController extends \App\Http\Controllers\Controller
         $fish->color = $request->input('color');  //retrieving user inputs
         $fish->number_of_fins = $request->input('number_of_fins');  //retrieving user inputs
         $fish->aquarium_id = $request->input('aquarium_id');  //retrieving user inputs
-        $fish->save(); //storing values as an object
+        $aquarium = Aquarium::findorFail($fish->aquarium_id);
+        if ($aquarium->checkCompatible($fish)) {
+            $fish->save(); //storing values as an object
+        } else {
+            return response()->json([], 500);
+        }
         return response()->json($fish, 201);
     }
 
